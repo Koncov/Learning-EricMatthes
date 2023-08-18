@@ -29,6 +29,7 @@ restaurant.ics()
 print()
 print("Упражнение 9.7")
 
+
 class User:
 
     def __init__(self, first_name, last_name, age, country):
@@ -44,6 +45,7 @@ class User:
     def greet_user(self):
         print(f"Мы приветствуем Вас - {self.last_name} {self.first_name}!!!")
 
+
 class Privileges:
     def __init__(self, privileges):
         self.privileges = privileges
@@ -55,6 +57,7 @@ class Privileges:
 
     def show_privileges(self):
         print(f"Список привилегий 2 - {self.privileges}")
+
 
 class Admin(User):
     def __init__(self, first_name, last_name, age, country):
@@ -75,6 +78,7 @@ user_2.privileges.show_privileges()
 # Упражнение 9.9
 print()
 print("Упражнение 9.9")
+
 
 class Car:
     """Простая модель автомобиля"""
@@ -110,6 +114,7 @@ class Car:
 
 class Battery:
     """Простая модель аккумуляторной батареи."""
+
     def __init__(self, battery_size=75):
         self.battery_size = battery_size
 
@@ -148,4 +153,3 @@ my_tesla.battery.describe_battery()
 my_tesla.battery.get_range()
 my_tesla.battery.upgrade_battery()
 my_tesla.battery.get_range()
-

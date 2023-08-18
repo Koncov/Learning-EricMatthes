@@ -44,7 +44,7 @@ class Battery:
         if self.battery_size == 75:
             range = 260
         elif self.battery_size == 100:
-            range - 315
+            range = 315
 
         print(f"This car cam go about {range} miles on a full charge.")
 
