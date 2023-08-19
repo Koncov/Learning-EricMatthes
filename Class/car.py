@@ -31,35 +31,35 @@ class Car:
         """Увеличивает показания одометра с приращением"""
         self.odometer_reading += miles
 
-
-class Battery:
-    """Простая модель аккумуляторной батареи."""
-    def __init__(self, battery_size=75):
-        self.battery_size = battery_size
-
-    def describe_battery(self):
-        """Выводит информацию о мощности аккумулятора"""
-        print(f"This car has a {self.battery_size} - kwh battery.")
-
-    def get_range(self):
-        """Выводит приблизительный запас хода для аккумулятора."""
-        if self.battery_size == 75:
-            range = 260
-        elif self.battery_size == 100:
-            range = 315
-
-        print(f"This car cam go about {range} miles on a full charge.")
-
-
-class ElectricCar(Car):
-    """Представляет аспекты машины, специфические для электромобилей."""
-
-    def __init__(self, make, model, year):
-        """Инициализирует атрибуты класса-родителя.
-        Затем инициализирует атрибуты характерные для электромобилей"""
-        super().__init__(make, model, year)
-        self.battery = Battery()
-
+#
+# class Battery:
+#     """Простая модель аккумуляторной батареи."""
+#     def __init__(self, battery_size=75):
+#         self.battery_size = battery_size
+#
+#     def describe_battery(self):
+#         """Выводит информацию о мощности аккумулятора"""
+#         print(f"This car has a {self.battery_size} - kwh battery.")
+#
+#     def get_range(self):
+#         """Выводит приблизительный запас хода для аккумулятора."""
+#         if self.battery_size == 75:
+#             range = 260
+#         elif self.battery_size == 100:
+#             range = 315
+#
+#         print(f"This car cam go about {range} miles on a full charge.")
+#
+#
+# class ElectricCar(Car):
+#     """Представляет аспекты машины, специфические для электромобилей."""
+#
+#     def __init__(self, make, model, year):
+#         """Инициализирует атрибуты класса-родителя.
+#         Затем инициализирует атрибуты характерные для электромобилей"""
+#         super().__init__(make, model, year)
+#         self.battery = Battery()
+#
 
 # my_new_car = Car('audi', 'a4', 2019)
 # print(my_new_car.get_descriptive_name())
