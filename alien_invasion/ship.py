@@ -17,7 +17,7 @@ class Ship:
         self.rect = self.image.get_rect()
         #  Каждый новый корабль появляется у нижнего края.
         self.rect.midbottom = self.screen_rect.midbottom
-        #  Сохранения вещественной координаты центра коробля.
+        #  Сохранения вещественной координаты центра корабля.
         self.x = float(self.rect.x)
 
         #  Флаг перемещения.
@@ -26,10 +26,10 @@ class Ship:
 
     def update(self):
         """Обновляет позицию корабля с учетом флага."""
-        #  Обновляется атрибут х, не rect
-        if self.moving_right:
+        #  Обновляется атрибут х объекта ship, не rect
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
-        if self.moving_left:
+        if self.moving_left and self.rect.left > 0:
             self.x -= self.settings.ship_speed
 
         #  Обновление атрибута rect на основании self.x
