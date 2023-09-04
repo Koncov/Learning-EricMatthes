@@ -5,9 +5,10 @@ import pygame
 from settings import Settings
 from ship import Ship
 from bullet import Bullet
+from alien import Alien
 
 
-class AllenInvasion:
+class AlienInvasion:
     """Класс для управления ресурсами и поведением игры."""
 
     def __init__(self):
@@ -26,6 +27,9 @@ class AllenInvasion:
 
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
+        self.aliens = pygame.sprite.Group()
+
+        self._create_fleet()
 
     def _check_keydown_events(self, event):
         """Реагирует на нажатие клавиш."""
@@ -72,12 +76,29 @@ class AllenInvasion:
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
 
+    def _create_fleet(self):
+        """Создание флота пришельцев."""
+        #  Создание пришельца и вычисления количества пришельцев в ряду.
+        #  Интервал между соседними пришельцами равен ширине пришельца.
+        alien = Alien(self)
+        alien_width = alien.rect.width
+        available_space_x = self.settings.screen_width - (2 * alien_width)
+        number_aliens_x = available_space_x // (2 * alien_width)
+
+        #  Создание пришельца и размещение его в ряду.
+        for alien_number in range(number_aliens_x):
+            alien = Alien(self)
+            alien.x = alien_width + 2 * alien_width * alien_number
+            alien.rect.x = alien.x
+            self.aliens.add(alien)
+
     def _update_screen(self):
         """Обновляет изображение на экране и отображает новый экран."""
         self.screen.fill(self.settings.bg_color)
         self.ship.blitme()
         for bullet in self.bullets:
             bullet.draw_bullet()
+        self.aliens.draw(self.screen)
 
         pygame.display.flip()
 
@@ -92,5 +113,5 @@ class AllenInvasion:
 
 if __name__ == '__main__':
     #  Создание экземпляра и запуска игры.
-    ai = AllenInvasion()
+    ai = AlienInvasion()
     ai.run_game()
