@@ -38,3 +38,8 @@ class Ship:
 
         #  Обновление атрибута rect на основании self.x
         self.rect.x = self.x
+
+    def center_ship(self):
+        """Размещает корабль в центре нижней стороны экрана."""
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
