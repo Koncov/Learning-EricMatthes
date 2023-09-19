@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 
 
-x_values = list(range(1, 1001))
-y_values = [x**2 for x in x_values]
+x_values = list(range(1, 5001))
+y_values = [x**3 for x in x_values]
 
 plt.style.use('ggplot')
 fig, ax = plt.subplots()
@@ -17,6 +17,5 @@ ax.set_ylabel("Square of Value", fontsize=14)
 ax.tick_params(axis='both', labelsize=14)
 
 # Назначение диапазона для каждой оси.
-ax.axis([0, 1100, 0, 1100000])
-
+ax.axis([0, 5500, 0, 900000000000])
 plt.show()
